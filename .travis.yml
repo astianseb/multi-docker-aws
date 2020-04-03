@@ -21,3 +21,17 @@ after_success:
     - docker push astianseb/multi-server
     - docker push astianseb/multi-worker
 
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: eu-west-1
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-eu-west-1-455234846450
+    bucket_path: docker-multi
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+         
+
