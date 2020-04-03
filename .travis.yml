@@ -10,9 +10,9 @@ script:
 
 after_success:
     - docker build -t astianseb/multi-client ./client
-    - docker build -f astianseb/multi-nginx ./nginx
-    - docker build -f astianseb/multi-server ./server
-    - docker build -f astianseb/multi-worker ./worker
+    - docker build -t astianseb/multi-nginx ./nginx
+    - docker build -t astianseb/multi-server ./server
+    - docker build -t astianseb/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to Dockerhub
